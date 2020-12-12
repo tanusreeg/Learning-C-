@@ -1,6 +1,7 @@
 #include <fstream>
 #include <stdlib.h>
 #include <iostream>
+#define MAX 10000
 using namespace std;
 // selection sort : finds minimum value from remaining array.. then replaces it with index element..
 // array = 5 4 3 2 1 || At 1st loop it will pick minimum value 1.. and swap with index 0.. || 1 4 3 2 5..
@@ -39,16 +40,16 @@ void selection_sort(int * array,int s)
 //driver 
 int main()
 {
-	int *arr= new int[10000];
-	ifstream ifs("RandomNumber_10000.txt");
-	for(int i = 0; i<10000; i++)
+	int *arr= new int[MAX];
+	ifstream ifs("RandomNumber_10000.txt");    // reads numbers from this text file
+	for(int i = 0; i<MAX; i++)
 	{
 		ifs>>arr[i];
 	}
 	ifs.close();
-	selection_sort(arr,10000);
-	ofstream ofs("Sorted by selection sort.txt", ios::trunc);
-	for(int i = 0; i<10000; i++)
+	selection_sort(arr,MAX);
+	ofstream ofs("Sorted by selection sort.txt", ios::trunc);    // writes sorted list to this text file
+	for(int i = 0; i<MAX; i++)
 	{
 		ofs<<arr[i];
 		ofs<<endl;
